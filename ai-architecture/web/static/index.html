@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<title>知筑 · AI Architecture Workspace</title>
+<link rel="stylesheet" href="css/app.css" />
+<link rel="stylesheet" href="css/agent-theme.css" />
+<link rel="stylesheet" href="css/inspection.css">
+<link rel="stylesheet" href="css/drafting.css">
+</head>
+<body>
+<div id="app">
+  <aside id="iconbar">
+    <div class="logo" title="知筑 · AI 建筑设计 Agent">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V8l6-4 6 4v13"/><path d="M15 21V4l6 3v14"/><path d="M3 21h18"/><path d="M9 9h.01M9 13h.01M9 17h.01"/></svg>
+    </div>
+    <nav id="iconnav"></nav>
+    <div class="iconbar-bottom">
+    </div>
+  </aside>
+  <aside id="sidebar">
+    <div id="sidebar-head">
+      <span id="sidebar-title">知筑 Agent</span>
+      <button id="sidebar-action" class="ghost-btn" title="新建">＋</button>
+    </div>
+    <div id="sidebar-content"></div>
+    <div id="sidebar-foot">
+      <span class="dot" id="bridge-dot"></span>
+      <span id="bridge-text">后端连接中…</span>
+    </div>
+  </aside>
+  <main id="main">
+    <header id="topbar">
+      <div class="crumb">
+        <span id="crumb-home">知筑</span>
+        <span class="crumb-sep">/</span>
+        <span id="crumb-view">对话</span>
+      </div>
+      <div class="topbar-actions">
+        <div class="agent-status" id="agent-status"><span class="agent-status-dot"></span><span id="agent-status-text">AI Agent 连接中…</span></div>
+        <div id="oauth-entry" class="oauth-entry"></div>
+        <label class="switch" title="演示模式（不请求外部 API）">
+          <input type="checkbox" id="demo-toggle" checked />
+          <span class="slider"></span>
+          <span class="switch-label">演示模式</span>
+        </label>
+        <button id="run-btn" class="primary-btn">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          <span id="run-btn-text">运行分析</span>
+        </button>
+      </div>
+    </header>
+    <div id="web-mode-note" class="web-mode-note">
+      <span class="wmn-dot"></span>
+      <p>网页版为<b>演示模式</b>：使用内置真实案例数据，保证访问稳定。<b>实时采集与联网检索</b>请在<b>桌面版工作台</b>运行。</p>
+      <button type="button" class="wmn-btn" onclick="switchView('data')">先看内置案例</button>
+    </div>
+    <div id="content"></div>
+  </main>
+</div>
+<div id="toast-root"></div>
+<script src="js/web-bridge.js"></script>
+<script src="js/oauth.js"></script>
+<script src="js/api.js"></script>
+<script src="js/views.js"></script>
+<script src="js/inspection.js"></script>
+<script src="js/drafting.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

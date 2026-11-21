@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "name": "CrackNet",
+  "params": 43265,
+  "checkpoint_id": "cfd-v2-fold1-best",
+  "policy": "cfd_label2_ignore34_exclude042_v1",
+  "source_fold": 1,
+  "selection": "best",
+  "epoch": 33,
+  "training_samples": 80,
+  "threshold": 0.5,
+  "input": "uint8 gray / 255.0",
+  "receptive_field": 33,
+  "weights_sha256": "2431a3dc52f6ae1330f969376b831a4b87b4d95d04c08eedd27d48c02c11d98b",
+  "manifest_digest": "97bd27233297350529f51d7a18628b0a294b00155741cfb4003977c1fdc161ed",
+  "selection_reason": "Fixed fold 1; not selected using outer test performance",
+  "validation": {
+    "dataset": "CFD",
+    "n": 117,
+    "protocol": "5-fold OOF; label2 positive, label1 negative, labels3/4 ignored; 042 excluded",
+    "macro_iou": 0.4448885872070099,
+    "scope": "Cross-validation experiment; not a score for this single deployment checkpoint"
+  },
+  "limitations": [
+    "Trained on CFD road images; SDNET bridge-deck image-level evaluation completed, on-site photos remain unvalidated",
+    "SDNET labels cannot validate pixel localization or widths",
+    "Candidate pixels only; no condition grade, depth, cause, or strength"
+  ],
+  "external_evaluation": {
+    "dataset": "SDNET2018 bridge-deck crops, public mirror v1",
+    "scope": "Image-level ranking, not segmentation IoU or on-site validation",
+    "checkpoint_id": "cfd-v2-fold1-best",
+    "calibration_groups": 14,
+    "holdout_groups": 40,
+    "holdout_images": 10079,
+    "auroc": 0.7231586134300347,
+    "application_classifier_changed": false
+  }
+}
